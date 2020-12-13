@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   // セルの数
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return personArray.count
   }
   
   // セルの構築
@@ -32,10 +32,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     
     let userNameLabel = cell.contentView.viewWithTag(1) as! UILabel
+    userNameLabel.text = personArray[indexPath.row].name
     
     let hobbyLabel = cell.contentView.viewWithTag(2) as! UILabel
+    hobbyLabel.text = personArray[indexPath.row].hobby
     
-    let moviewLabel = cell.contentView.viewWithTag(3) as! UILabel
+    let movieLabel = cell.contentView.viewWithTag(3) as! UILabel
+    movieLabel.text = personArray[indexPath.row].movie
+
     
     return cell
   }
