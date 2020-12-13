@@ -8,6 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SetOkDelegate {
+  
+  func setOk(check: Person) {
+    <#code#>
+  }
+  
 
   @IBOutlet weak var tableView: UITableView!
   

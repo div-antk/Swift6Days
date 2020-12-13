@@ -16,15 +16,16 @@ class NextViewController: UIViewController {
   // 構造体をインスタンス化
   var person = Person()
   
-  
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var hobbyTextField: UITextField!
   @IBOutlet weak var movieTextField: UITextField!
   
-  var setOkDelegate = SetOkDelegate?
+  var setOkDelegate:SetOkDelegate?
   
   override func viewDidLoad() {
         super.viewDidLoad()
+    
+    print(person.name)
       
     }
     
@@ -33,9 +34,10 @@ class NextViewController: UIViewController {
     person.name = nameTextField.text!
     person.hobby = hobbyTextField.text!
     person.movie = movieTextField.text!
-    setOkDelegate?.setOk(check: person)
     
-    dismiss(animated: true, complatiom: nil)
+    setOkDelegate?.setOk(check:person)
+    
+    dismiss(animated: true, completion: nil)
   }
   
     /*
