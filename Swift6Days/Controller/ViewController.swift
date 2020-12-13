@@ -8,14 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SetOkDelegate {
-  
-  func setOk(check: Person) {
-    <#code#>
-  }
-  
 
   @IBOutlet weak var tableView: UITableView!
   
+  var person = Person()
+  var personArray = [Person]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,9 +53,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     performSegue(withIdentifier: "next", sender: nil)
   }
   
+  func setOk(check: Person) {
+    personArray.append(check)
+    tableView.reloadData()
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "next" {
-      
+      let nextVC = segue.destination as! NextViewController
+      nextVC.setOkDelegate = self
     }
   }
 }
