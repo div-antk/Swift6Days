@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SetOkDelegate {
 
   @IBOutlet weak var tableView: UITableView!
   
@@ -44,6 +44,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 200
+  }
+  
+  @IBAction func favButtonAction(_ sender: Any) {
+    // 画面遷移
+    performSegue(withIdentifier: "next", sender: nil)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "next" {
+      
+    }
   }
 }
 

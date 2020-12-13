@@ -7,15 +7,37 @@
 
 import UIKit
 
+protocol SetOkDelegate {
+  func setOk(check:Person)
+}
+
 class NextViewController: UIViewController {
 
-    override func viewDidLoad() {
+  // 構造体をインスタンス化
+  var person = Person()
+  
+  
+  @IBOutlet weak var nameTextField: UITextField!
+  @IBOutlet weak var hobbyTextField: UITextField!
+  @IBOutlet weak var movieTextField: UITextField!
+  
+  var setOkDelegate = SetOkDelegate?
+  
+  override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      
     }
     
-
+  @IBAction func done(_ sender: Any) {
+    
+    person.name = nameTextField.text!
+    person.hobby = hobbyTextField.text!
+    person.movie = movieTextField.text!
+    setOkDelegate?.setOk(check: person)
+    
+    dismiss(animated: true, complatiom: nil)
+  }
+  
     /*
     // MARK: - Navigation
 
